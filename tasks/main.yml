@@ -1,22 +1,28 @@
 ---
-- name: Installing awscli packages using apt
-  become: true
-  apt:
-    pkg: "awscli"
-    update_cache: yes
-    state: latest
-  when: ansible_distribution == 'Ubuntu'
+#- name: Installing awscli packages using apt
+#  become: true
+#  apt:
+#    pkg: "awscli"
+#    update_cache: yes
+#    state: latest
+#  when: ansible_distribution == 'Ubuntu'
 
-- name: Installing awscli packages using yum
-  become: true
-  yum:
-    pkg: "awscli"
-    update_cache: yes
-    state: latest
-  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+#- name: Installing awscli packages using yum
+#  become: true
+#  yum:
+#    pkg: "awscli"
+#    update_cache: yes
+#    state: latest
+#  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
 
-- name: Installing awscli packages using pacman
-  pacman:
+#- name: Installing awscli packages using pacman
+#  pacman:
+#    name: "awscli"
+#    state: present
+#  when: ansible_distribution == 'MacOSX'
+
+- name: Installing awscli packages
+  become: true
+  package:
     name: "awscli"
     state: present
-  when: ansible_distribution == 'MacOSX'
